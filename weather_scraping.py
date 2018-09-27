@@ -33,7 +33,7 @@ def main():
        speech = "今日の広島の天気は{}です".format(forecast_weather)
     elif date == datetime.datetime.strftime(tomorrow,"%Y-%m-%d"):
         tomorrow_html = soup.find(class_="tomorrow-weather")
-        forcast_weather = tomorrow_html.p.string
+        forecast_weather = tomorrow_html.p.string
         if forecast_weather == "晴":
            forecast_weather = "晴れ"
         speech = "明日の広島の天気は{}です".format(forecast_weather)
