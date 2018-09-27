@@ -16,7 +16,7 @@ app = Flask(__name__)
 def main():
     request_json = request.get_json()
     date = request_json["result"]["parameters"]["date"]
-    weather = request_json["queryResult"]["parameters"]["weather"]
+    weather = request_json["result"]["parameters"]["weather"]
     url = "https://tenki.jp/forecast/7/37/6710/34100/"
 
     today = datetime.datetime.today()
@@ -44,9 +44,10 @@ def main():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT",5000))
+    #port = int(os.environ.get("PORT",5000))
     
-    app.run(debug=False,port=port,host="0.0.0.0")
+    #app.run(debug=False,port=port,host="0.0.0.0")
+    app.run(host="0.0.0.0",port = 3000)
 
 
 
