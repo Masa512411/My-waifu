@@ -12,7 +12,7 @@ from flask import make_response
 
 app = Flask(__name__)
 
-#@app.route("/webhook",methods=["POST"])
+@app.route("/webhook",methods=["POST"])
 def main():
     request_json = request.get_json()
     date = request_json["result"]["parameters"]["date"]
