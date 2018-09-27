@@ -15,15 +15,12 @@ app = Flask(__name__)
 #@app.route("/webhook",methods=["POST"])
 def main():
     request_json = request.get_json()
-    date = request_json["queryResult"]["parameters"]["date"]
+    date = request_json["result"]["parameters"]["date"]
     weather = request_json["queryResult"]["parameters"]["weather"]
     url = "https://tenki.jp/forecast/7/37/6710/34100/"
 
-    date = date.split("T")[0]
-    
     today = datetime.datetime.today()
     tomorrow = today + datetime.timedelta(days=1)
-
 
     response = req.get(url)
     soup = BeautifulSoup(response.text,"html.parser")
