@@ -1,1 +1,1 @@
-web: python weather_scraping.py
+web: python main.py
