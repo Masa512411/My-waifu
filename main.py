@@ -44,6 +44,7 @@ def main():
 
     if request_json["result"]["metadata"]["intentName"] == "intro-kosen":
         depart_data = request_json["result"]["parameters"]["kosen-department"]
+        building_data = request_json["result"]["parameters"]["kosen-building"]
 
         with open("sinario.json","r") as f:
             sinario = f.read()
@@ -51,7 +52,10 @@ def main():
         sinario = json.loads(sinario)
 
         try:
-            speech = sinario[depart_data]
+            if depart_data == "":
+                speech = sinario[building_data]
+            else:
+                speech = sinario[depart_data]
         except KeyError:
             speech = "ちょっとわかりません"
 
