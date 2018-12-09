@@ -54,7 +54,7 @@ def main():
         try:
             if depart_data == "":
                 speech = sinario[building_data]
-            else:
+            if building_data == "":
                 speech = sinario[depart_data]
         except KeyError:
             speech = "ちょっとわかりません"
