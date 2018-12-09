@@ -32,15 +32,15 @@ def main():
         if date == datetime.datetime.strftime(today,"%Y-%m-%d"):
             today_html = soup.find(class_="today-weather")
             forecast_weather = today_html.p.string
-        if forecast_weather == "晴":
-            forecast_weather = "晴れ"
-            speech = "今日の広島の天気は{}です".format(forecast_weather)
+            if forecast_weather == "晴":
+                forecast_weather = "晴れ"
+                speech = "今日の広島の天気は{}です".format(forecast_weather)
         elif date == datetime.datetime.strftime(tomorrow,"%Y-%m-%d"):
             tomorrow_html = soup.find(class_="tomorrow-weather")
             forecast_weather = tomorrow_html.p.string
-        if forecast_weather == "晴":
-            forecast_weather = "晴れ"
-            speech = "明日の広島の天気は{}です".format(forecast_weather)
+            if forecast_weather == "晴":
+                forecast_weather = "晴れ"
+                speech = "明日の広島の天気は{}です".format(forecast_weather)
 
     if request_json["result"]["metadata"]["intentName"] == "intro-kosen":
         depart_data = request_json["result"]["parameters"]["kosen-department"]
