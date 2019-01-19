@@ -10,11 +10,8 @@ from flask import jsonify
 from flask import request
 from flask import make_response
 
-app = Flask(__name__)
 
-@app.route("/webhook",methods=["POST"])
-def weather():
-    request_json = request.get_json()
+def weather(request_json):
     date = request_json["result"]["parameters"]["date"]
     weather = request_json["result"]["parameters"]["weather"]
     url = "https://tenki.jp/forecast/7/37/6710/34100/"
