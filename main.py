@@ -2,6 +2,7 @@ import json
 import os 
 import datetime
 import sys
+import random
 
 import requests as req
 from bs4 import BeautifulSoup
@@ -13,6 +14,7 @@ from flask import make_response
 
 from modules.intro_kosen import intro
 from modules.weather_scraping import weather
+from modules.self_intro import selfIntro
 
 app = Flask(__name__)
 
@@ -26,6 +28,9 @@ def main():
 
     if request_json["result"]["metadata"]["intentName"] == "intro-kosen":
         res = intro(request_json)
+
+    if request_json["result"]["metadata"]["intentName"] == "self_intro":
+        res = selfIntro(request_json)
 
     return(res)
 
