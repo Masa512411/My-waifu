@@ -13,7 +13,7 @@ from flask import make_response
 def intro(request_json):
     apart_data = request_json["result"]["parameters"]["kosen-department"]
 
-    with open("./modules/sinario.json","r") as f:
+    with open("./data/sinario.json","r") as f:
         sinario = f.read()
 
     sinario = json.loads(sinario)
