@@ -19,7 +19,7 @@ def intro(request_json):
     sinario = json.loads(sinario)
     
     try:
-        speech = sinario[data]
+        speech = sinario[apart_data]
     except KeyError:
         speech = "ちょっとわかりません"
     
