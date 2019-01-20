@@ -21,7 +21,7 @@ def intro(request_json):
     try:
         speech = sinario[apart_data]
     except KeyError:
-        speech = "ちょっとわからないです"
+        speech = ""
     
     res = make_response(jsonify({'speech':speech,'displayText':speech}))
     res.headers['Content-type'] = 'application/json'

@@ -18,7 +18,7 @@ def selfIntro(request_json):
     try:
         speech = random.choice(ans[phrase])
     except KeyError:
-        speech = "ちょっとわからないです"
+        speech = ""
 
     res = make_response(jsonify({'speech':speech,'displayText':speech}))
     res.headers['Content-type'] = 'application/json'
